@@ -49,6 +49,16 @@ class OrderManager:
                     quantity=quantity,
                     price=price
                 )
+            elif order_type == "STOP_MARKET":
+                if price is None:
+                    raise ValueError("Stop Price (price parameter) is required for STOP_MARKET orders.")
+                response = self.client.futures_create_order(
+                    symbol=symbol,
+                    side=side,
+                    type=order_type,
+                    stopPrice=price,
+                    quantity=quantity
+                )
             else:
                 raise ValueError(f"Unsupported order type: {order_type}")
 
@@ -70,4 +80,21 @@ class OrderManager:
             raise e
         except Exception as e:
             logger.error(f"Unexpected Error during order placement: {e}")
+            raise e
+
+    def get_account_balance(self, asset: str = "USDT"):
+        """
+        Fetch balance for a specific asset in the Futures account.
+        
+        :param asset: Asset symbol (e.g., USDT)
+        """
+        try:
+            logger.info(f"Fetching account balance for {asset}...")
+            balances = self.client.futures_account_balance()
+            for b in balances:
+                if b['asset'] == asset:
+                    return b
+            return None
+        except Exception as e:
+            logger.error(f"Error fetching balance: {e}")
             raise e

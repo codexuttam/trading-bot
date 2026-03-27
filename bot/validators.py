@@ -14,8 +14,8 @@ def validate_side(side: str) -> bool:
     return side.upper() in ["BUY", "SELL"]
 
 def validate_order_type(order_type: str) -> bool:
-    """Validate order type (MARKET/LIMIT)."""
-    return order_type.upper() in ["MARKET", "LIMIT"]
+    """Validate order type (MARKET/LIMIT/STOP_MARKET)."""
+    return order_type.upper() in ["MARKET", "LIMIT", "STOP_MARKET"]
 
 def validate_quantity(quantity: Union[str, float, int]) -> bool:
     """Validate quantity - must be positive."""
@@ -26,8 +26,8 @@ def validate_quantity(quantity: Union[str, float, int]) -> bool:
         return False
 
 def validate_price(price: Optional[Union[str, float, int]], order_type: str) -> bool:
-    """Validate price - required and positive for LIMIT orders."""
-    if order_type.upper() == "LIMIT":
+    """Validate price - required and positive for LIMIT and STOP_MARKET orders."""
+    if order_type.upper() in ["LIMIT", "STOP_MARKET"]:
         if price is None:
             return False
         try:

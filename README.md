@@ -27,24 +27,37 @@ A small Python application to place Market and Limit orders on the Binance Futur
 
 ## Usage
 
-Run the bot using `cli.py`:
+The bot now supports subcommands for easier interaction:
 
-### Place a Market Order
+### 1. Place an Order
+#### Place a Market Buy Order
 ```bash
-python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
+python cli.py order --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
 ```
 
-### Place a Limit Order
+#### Place a Limit Sell Order
 ```bash
-python cli.py --symbol ETHUSDT --side SELL --type LIMIT --quantity 0.1 --price 2500.5
+python cli.py order --symbol ETHUSDT --side SELL --type LIMIT --quantity 0.1 --price 3500.5
+```
+
+#### Place a Stop-Market Sell Order
+```bash
+python cli.py order --symbol BTCUSDT --side SELL --type STOP_MARKET --quantity 0.001 --price 60000
+```
+
+### 2. Check Account Balance
+```bash
+python cli.py balance --asset USDT
 ```
 
 ### Options
+- `order`: Subcommand to place a trade.
+- `balance`: Subcommand to check your account equity.
 - `--symbol, -s`: Trading symbol (e.g., BTCUSDT).
-- `--side, -d`: Order side (BUY/SELL).
-- `--type, -t`: Order type (MARKET/LIMIT).
-- `--quantity, -q`: Order quantity.
-- `--price, -p`: Order price (Required for LIMIT orders).
+- `--side, -d`: BUY or SELL.
+- `--type, -t`: MARKET, LIMIT, or STOP_MARKET.
+- `--quantity, -q`: Quantity.
+- `--price, -p`: Price (Required for LIMIT/STOP_MARKET).
 
 ## Project Structure
 ```
