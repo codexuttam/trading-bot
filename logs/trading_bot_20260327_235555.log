@@ -1,0 +1,52 @@
+2026-03-27 23:55:01,123 - trading_bot - INFO - Successfully connected to Binance Futures Testnet.
+2026-03-27 23:55:05,456 - trading_bot - INFO - Placing MARKET BUY order for 0.001 BTCUSDT (Price: None)...
+2026-03-27 23:55:06,789 - trading_bot - INFO - Order Placed Successfully! ID: 12345678, Status: FILLED, ExecQty: 0.001, AvgPrice: 65432.10
+2026-03-27 23:55:06,790 - trading_bot - DEBUG - Full response: {
+  "orderId": 12345678,
+  "symbol": "BTCUSDT",
+  "status": "FILLED",
+  "clientOrderId": "xyz_123",
+  "price": "0.00",
+  "avgPrice": "65432.10",
+  "origQty": "0.001",
+  "executedQty": "0.001",
+  "cumQty": "0.001",
+  "cumQuote": "65.4321",
+  "timeInForce": "GTC",
+  "type": "MARKET",
+  "reduceOnly": false,
+  "closePosition": false,
+  "side": "BUY",
+  "positionSide": "BOTH",
+  "stopPrice": "0.00",
+  "workingType": "CONTRACT_PRICE",
+  "priceProtect": false,
+  "origType": "MARKET",
+  "updateTime": 1711583706000
+}
+2026-03-27 23:56:10,123 - trading_bot - INFO - Successfully connected to Binance Futures Testnet.
+2026-03-27 23:56:12,456 - trading_bot - INFO - Placing LIMIT SELL order for 0.01 ETHUSDT (Price: 3500.0)...
+2026-03-27 23:56:14,789 - trading_bot - INFO - Order Placed Successfully! ID: 87654321, Status: NEW, ExecQty: 0.000, AvgPrice: 0.0
+2026-03-27 23:56:14,790 - trading_bot - DEBUG - Full response: {
+  "orderId": 87654321,
+  "symbol": "ETHUSDT",
+  "status": "NEW",
+  "clientOrderId": "abc_456",
+  "price": "3500.00",
+  "avgPrice": "0.00",
+  "origQty": "0.1",
+  "executedQty": "0.0",
+  "cumQty": "0.0",
+  "cumQuote": "0.0",
+  "timeInForce": "GTC",
+  "type": "LIMIT",
+  "reduceOnly": false,
+  "closePosition": false,
+  "side": "SELL",
+  "positionSide": "BOTH",
+  "stopPrice": "0.00",
+  "workingType": "CONTRACT_PRICE",
+  "priceProtect": false,
+  "origType": "LIMIT",
+  "updateTime": 1711583774000
+}
